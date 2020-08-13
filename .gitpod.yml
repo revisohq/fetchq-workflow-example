@@ -2,7 +2,7 @@ image: marcopeg/gitpod-workspace-postgres:2.5.0
 
 tasks:
   - name: Api
-    init: rm -rf ./.gitpod.lock && yarn install && touch ./.gitpod.lock
+    init: rm -rf ./.gitpod.lock && npm i && touch ./.gitpod.lock
     command: yarn start
     openIn: bottom
     openMode: tab-before

@@ -1,7 +1,7 @@
 describe('foobar', () => {
   beforeEach(global.resetFetchq);
 
-  it.skip('should fail if the ID is not valid (too short)', async () => {
+  it('should fail if the ID is not valid (too short)', async () => {
     const r1 = await global.get('/delete/1');
 
     const r2 = await global.checkStatus(

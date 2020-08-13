@@ -13,7 +13,6 @@ const coreDel = require('./features/core-del');
 const testUtils = require('./test-utils');
 
 const isDev = ['development', 'test'].includes(process.env.NODE_ENV);
-console.log(process.env.NODE_ENV, isDev);
 
 runHookApp({
   trace: 'compact',
@@ -31,7 +30,11 @@ runHookApp({
     serviceFastify,
     serviceFastifyFetchq,
     serviceFastifyHealthz,
+  ],
+  features: [
+    triggerDelete,
+    routerDelete,
+    coreDel,
     ...(isDev ? [testUtils] : []),
   ],
-  features: [triggerDelete, routerDelete, coreDel],
 });

@@ -4,8 +4,6 @@ const { makeQueue } = require('../utils/make-queue');
 const FEATURE_NAME = `${FEATURE} routerDelete`;
 
 const routerHandler = async (doc, { client }) => {
-  console.log(doc.payload);
-
   // Forward to multiple queues
   if (doc.iterations === 0) {
     await doc.forward('core_del');

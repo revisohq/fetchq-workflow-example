@@ -1,25 +1,26 @@
-const { runHookApp } = require("@forrestjs/hooks");
+const { runHookApp } = require('@forrestjs/hooks');
 
 // List of services
-const serviceFastify = require("@forrestjs/service-fastify");
-const serviceFetchq = require("@forrestjs/service-fetchq");
-const serviceFastifyFetchq = require("@forrestjs/service-fastify-fetchq");
+const serviceFastify = require('@forrestjs/service-fastify');
+const serviceFetchq = require('@forrestjs/service-fetchq');
+const serviceFastifyFetchq = require('@forrestjs/service-fastify-fetchq');
 
 // List of features
-const triggerDelete = require("./features/trigger-delete");
-const routerDelete = require("./features/router-delete");
-const coreDel = require("./features/core-del");
+const triggerDelete = require('./features/trigger-delete');
+const routerDelete = require('./features/router-delete');
+const coreDel = require('./features/core-del');
 
 runHookApp({
-  trace: "compact",
+  trace: 'compact',
   settings: {
     fastify: {
-      meta: null
+      meta: null,
     },
     fetchq: {
-      pool: { max: 1 }
-    }
+      connectionString: 'postgresql://gitpod:gitpod@localhost:5432/postgres',
+      pool: { max: 1 },
+    },
   },
   services: [serviceFetchq, serviceFastify, serviceFastifyFetchq],
-  features: [triggerDelete, routerDelete, coreDel]
+  features: [triggerDelete, routerDelete, coreDel],
 });

@@ -15,7 +15,13 @@ describe('foobar', () => {
 
   it('should complete an ID', async () => {
     const r1 = await global.get('/delete/111');
-    const r2 = await global.checkStatus('delete-111', ['router_delete'], 3);
+    const r2 = await global.checkStatus(
+      'delete-111',
+      ['router_delete'],
+      3,
+      100,
+      14000,
+    );
     expect(r2).toBe(true);
   });
 });

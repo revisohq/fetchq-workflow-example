@@ -1,12 +1,7 @@
 const FEATURE_NAME = 'TEST_UTILS';
 
 const fetchqResetHandler = async (req, reply) => {
-  await Promise.all([
-    req.fetchq.pool.query('drop schema if exists fetchq_catalog cascade;'),
-    await req.fetchq.pool.query('drop schema if exists public cascade;'),
-  ]);
-  await req.fetchq.pool.query('create schema if not exists public;');
-  await req.fetchq.boot();
+  await req.fetchq.utils.reset();
   reply.send('ok');
 };
 

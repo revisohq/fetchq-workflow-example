@@ -6,13 +6,13 @@
   "scripts": {
     "start": "NODE_ENV=development nodemon src/index.js",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:e2e": "./node_modules/.bin/jest --projects test/e2e --runInBand --testTimeout=10000",
+    "test:e2e": "./node_modules/.bin/jest --projects test/e2e --runInBand --testTimeout=15000",
     "test:unit": "./node_modules/.bin/jest --projects test/unit",
-    "tdd:e2e": "./node_modules/.bin/jest --projects test/e2e --runInBand --watchAll --testTimeout=10000",
+    "tdd:e2e": "./node_modules/.bin/jest --projects test/e2e --runInBand --watchAll --testTimeout=15000",
     "tdd:unit": "jest --projects test/unit --watchAll"
   },
   "dependencies": {
-    "@forrestjs/package-fastify": "3.15.0"
+    "@forrestjs/package-fastify": "3.16.0"
   },
   "devDependencies": {
     "axios": "^0.19.2",

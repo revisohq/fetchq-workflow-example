@@ -1,7 +1,7 @@
 const handler = async (doc, { client }) => {
   // Forward to multiple queues
   if (doc.iterations === 0) {
-    await doc.forward('core_del_aaa');
+    await doc.forward('core_del_UserTabOrder');
     await doc.forward('core_del_bbb');
     await doc.forward('core_del_ccc');
     return doc.reschedule('+1ms');

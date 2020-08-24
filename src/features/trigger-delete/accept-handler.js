@@ -4,6 +4,8 @@
  * possible previous requests.
  */
 
+const { getOpsaetning } = require('./../core-del/db');
+
 const validatePayload = (payload) => {
   if (!payload.agId) {
     return new Error("wrong payload structure");
@@ -24,10 +26,12 @@ const acceptHandler = async (doc, { client }) => {
 
   const { subject: ticket } = doc;
   const { agId } = doc.payload;
-
-  // Validation of the ID
-  if (parseInt(agId, 10) < 100) {
-    return doc.kill("not a valid id");
+  let setupId;
+  // getting SetupId is also a validation
+  try {
+    setupId = await getOpsaetning(agId);
+  } catch (err) {
+    return doc.kill('Error getting SetupId:', err);
   }
 
   // Conversion of the current message into the format that
@@ -35,7 +39,7 @@ const acceptHandler = async (doc, { client }) => {
   const subject = `delete-${doc.payload.agId}`;
   const payload = {
     ...doc.payload,
-    upId: `up-${agId}`,
+    setupId,
     ticket
   };
 

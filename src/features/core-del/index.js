@@ -7,6 +7,7 @@ module.exports = ({ registerAction }) => {
     name: FEATURE_NAME,
     handler: [
       makeQueue("core_del"),
+      makeQueue("core_del_UserTabOrder"),
       makeQueue("core_del_aaa"),
       makeQueue("core_del_bbb"),
       makeQueue("core_del_ccc")
@@ -17,6 +18,7 @@ module.exports = ({ registerAction }) => {
     name: FEATURE_NAME,
     handler: [
       require("./core-del"),
+      require("./core-del-UserTabOrder"),
       require("./core-del-aaa"),
       require("./core-del-bbb"),
       require("./core-del-ccc")

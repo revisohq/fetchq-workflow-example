@@ -33,7 +33,6 @@ const acceptHandler = async (doc, { client }) => {
   } catch (err) {
     return doc.kill('Error getting SetupId:', err);
   }
-
   // Conversion of the current message into the format that
   // will grant uniqueness in the elaboration queue
   const subject = `delete-${doc.payload.agId}`;

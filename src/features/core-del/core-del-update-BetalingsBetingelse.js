@@ -9,7 +9,7 @@ const handler = async doc => {
     await callNoResQuery(`UPDATE Opsaetning SET SystemLogo = NULL WHERE Opsaetning = ${setupId}`);
     await callNoResQuery(`UPDATE FakturaLinieKladde SET OverfKladdeNr = NULL, OverfLinieNr = NULL WHERE Opsaetning = ${setupId}`);
     console.log("Forwarding");
-    await doc.forward('core_del_delete_part_1');
+    await doc.forward('s3_delete_file');
     return doc.complete();
   } catch (err) {
     console.log(err)

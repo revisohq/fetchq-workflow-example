@@ -1,11 +1,11 @@
 const { callNoResQuery } = require('../db');
 
 const handler = async doc => {
-  console.log('Delete part 20>', doc.subject);
+  console.log('Delete part 37>', doc.subject);
   try {
     const setupId = doc.payload.setupId;
-    await callNoResQuery(`DELETE FROM FakturaLinie WHERE Opsaetning = ${setupId}`);
-    await doc.forward('core_del_delete_part_21');
+    await callNoResQuery(`DELETE FROM Konto WHERE Opsaetning = ${setupId}`);
+    await doc.forward('core_del_delete_part_38');
     return doc.complete();
   } catch (err) {
     return doc.reschedule('+1s');
@@ -13,6 +13,6 @@ const handler = async doc => {
 };
 
 module.exports = {
-  queue: 'core_del_delete_part_20',
+  queue: 'core_del_delete_part_37',
   handler,
 };

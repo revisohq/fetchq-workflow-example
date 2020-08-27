@@ -1,7 +1,7 @@
 const { callNoResQuery } = require('./db');
 
 const handler = async doc => {
-  console.log('Update BetalingsBetingelse>', doc.subject);
+  console.log('Update constraints>', doc.subject);
   try {
     const setupId = doc.payload.setupId;
     await callNoResQuery(`UPDATE Debitor SET BetalingsBetingelse = NULL WHERE Opsaetning = ${setupId}`);
@@ -18,6 +18,6 @@ const handler = async doc => {
 };
 
 module.exports = {
-  queue: 'core_del_Update_BetalingsBetingelse',
+  queue: 'core_del_update_constraints',
   handler,
 };

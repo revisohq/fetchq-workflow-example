@@ -7,7 +7,7 @@ module.exports = ({ registerAction }) => {
     name: FEATURE_NAME,
     handler: [
       makeQueue("core_del"),
-      makeQueue("core_del_Update_BetalingsBetingelse"),
+      makeQueue("core_del_update_constraints"),
       makeQueue("core_del_delete_part_1"),
       makeQueue("core_del_delete_part_2"),
       makeQueue("core_del_delete_part_3"),
@@ -67,9 +67,7 @@ module.exports = ({ registerAction }) => {
       makeQueue("core_del_delete_part_57"),
       makeQueue("core_del_delete_part_58"),
       makeQueue("core_del_delete_part_59"),
-      makeQueue("core_del_aaa"),
-      makeQueue("core_del_bbb"),
-      makeQueue("core_del_ccc")
+      makeQueue("core_del_finalize"),
     ]
   });
   registerAction({
@@ -77,7 +75,7 @@ module.exports = ({ registerAction }) => {
     name: FEATURE_NAME,
     handler: [
       require("./core-del"),
-      require("./core-del-Update-BetalingsBetingelse"),
+      require("./core-del-update-constraints"),
       require("./delete-queries/core-del-delete-part-1"),
       require("./delete-queries/core-del-delete-part-2"),
       require("./delete-queries/core-del-delete-part-3"),
@@ -137,9 +135,7 @@ module.exports = ({ registerAction }) => {
       require("./delete-queries/core-del-delete-part-57"),
       require("./delete-queries/core-del-delete-part-58"),
       require("./delete-queries/core-del-delete-part-59"),
-      require("./core-del-aaa"),
-      require("./core-del-bbb"),
-      require("./core-del-ccc")
+      require("./core-del-finalize"),
     ]
   });
 };

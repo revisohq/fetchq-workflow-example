@@ -7,7 +7,7 @@ const handler = async doc => {
     const setupId = doc.payload.setupId;
     await callNoResQuery(`DELETE FROM Opsaetning WHERE Opsaetning = ${setupId}`);
     await callNoResQuery(`DELETE FROM Aftalenr WHERE AftaleNr = ${agId}`);
-    await doc.forward('core_del_aaa');
+    await doc.forward('core_del_finalize');
     return doc.complete();
   } catch (err) {
     return doc.reschedule('+1s');

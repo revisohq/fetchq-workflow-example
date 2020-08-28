@@ -5,6 +5,7 @@ const serviceFastify = require('@forrestjs/service-fastify');
 const serviceFetchq = require('@forrestjs/service-fetchq');
 const serviceFastifyFetchq = require('@forrestjs/service-fastify-fetchq');
 const serviceFastifyHealthz = require('@forrestjs/service-fastify-healthz');
+const serviceCoreAppDb = require('./services/service-revisiohq-core-app-db');
 
 // List of features
 const triggerDelete = require('./features/trigger-delete');
@@ -30,6 +31,7 @@ runHookApp({
     serviceFastify,
     serviceFastifyFetchq,
     serviceFastifyHealthz,
+    serviceCoreAppDb
   ],
   features: [
     triggerDelete,

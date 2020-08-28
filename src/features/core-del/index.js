@@ -73,9 +73,14 @@ module.exports = ({ registerAction }) => {
   registerAction({
     hook: "$FETCHQ_REGISTER_WORKER",
     name: FEATURE_NAME,
+    handler: require("./core-del-update-constraints")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
     handler: [
       require("./core-del"),
-      require("./core-del-update-constraints"),
       require("./delete-queries/core-del-delete-part-1"),
       require("./delete-queries/core-del-delete-part-2"),
       require("./delete-queries/core-del-delete-part-3"),

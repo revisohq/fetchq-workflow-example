@@ -5,8 +5,8 @@ const handler = async doc => {
   try {
     const agId = doc.payload.agId;
     const setupId = doc.payload.setupId;
-    await callNoResQuery(`DELETE FROM Opsaetning WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM Aftalenr WHERE AftaleNr = ${agId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM Opsaetning WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM Aftalenr WHERE AftaleNr = ${agId}`);
     await doc.forward('core_del_finalize');
     return doc.complete();
   } catch (err) {

@@ -1,5 +1,5 @@
 const sql = require('msnodesqlv8');
-const { SERVICE_NAME, hooks } = require('./hooks');
+const { SERVICE_NAME, ...hooks } = require('./hooks');
 const connectionString = 'Driver={SQL Server Native Client 11.0}; Server=localhost; Database={core-app}; Trusted_Connection=Yes;'
 
 
@@ -61,7 +61,8 @@ const callQuery = query => {
 };
 
 module.exports = ({ registerHook, registerAction, getConfig, setContext }) => {
-    registerHook(hooks);
+    //registerHook(hooks);
+    console.log('hooks ', hooks)
     registerAction({
         hook: '$INIT_SERVICE',
         name: SERVICE_NAME,

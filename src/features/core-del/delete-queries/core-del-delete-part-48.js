@@ -5,16 +5,16 @@ const handler = async doc => {
   try {
     const agId = doc.payload.agId;
     const setupId = doc.payload.setupId;
-    await callNoResQuery(`DELETE FROM LagerFlytKladde WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM LagerStatusKostpris WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM LicenseModuleLegacyPrice WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM PakkeLoesningVare WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM ProjektAktivitetsOpgaveVare WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM ProjektRegistreringVare WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM VarePrisValuta WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM ArdCompany WHERE AgreementNumber = ${agId}`);
-    await callNoResQuery(`DELETE FROM ArdCompanyReports WHERE SetupId = ${setupId}`);
-    await callNoResQuery(`DELETE FROM ArdSkabelon WHERE Aftalenr = ${agId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM LagerFlytKladde WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM LagerStatusKostpris WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM LicenseModuleLegacyPrice WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM PakkeLoesningVare WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM ProjektAktivitetsOpgaveVare WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM ProjektRegistreringVare WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM VarePrisValuta WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM ArdCompany WHERE AgreementNumber = ${agId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM ArdCompanyReports WHERE SetupId = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM ArdSkabelon WHERE Aftalenr = ${agId}`);
     await doc.forward('core_del_delete_part_49');
     return doc.complete();
   } catch (err) {

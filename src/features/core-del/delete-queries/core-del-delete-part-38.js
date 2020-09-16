@@ -4,13 +4,13 @@ const handler = async doc => {
   console.log('Delete part 38>', doc.subject);
   try {
     const setupId = doc.payload.setupId;
-    await callNoResQuery(`DELETE FROM FordelingsNoegleAfdeling WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM FordelingsNoegle WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM Afdeling WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM Periode WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM UnbrokenNumberSeriesIdMapper WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM RegnskabsAar WHERE Opsaetning = ${setupId}`);
-    await callNoResQuery(`DELETE FROM DocumentLine WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM FordelingsNoegleAfdeling WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM FordelingsNoegle WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM Afdeling WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM Periode WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM UnbrokenNumberSeriesIdMapper WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM RegnskabsAar WHERE Opsaetning = ${setupId}`);
+    await coreappdb.callNoResQuery(`DELETE FROM DocumentLine WHERE Opsaetning = ${setupId}`);
     await doc.forward('core_del_delete_part_39');
     return doc.complete();
   } catch (err) {

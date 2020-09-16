@@ -6,6 +6,7 @@ const serviceFetchq = require('@forrestjs/service-fetchq');
 const serviceFastifyFetchq = require('@forrestjs/service-fastify-fetchq');
 const serviceFastifyHealthz = require('@forrestjs/service-fastify-healthz');
 const serviceCoreAppDb = require('./services/service-revisiohq-core-app-db');
+const serviceCoreAppDbMock = require('../test/mocks/core-db-mock');
 
 // List of features
 const triggerDelete = require('./features/trigger-delete');
@@ -13,8 +14,8 @@ const routerDelete = require('./features/router-delete');
 const coreDel = require('./features/core-del');
 const testUtils = require('./test-utils');
 
-const isDev = ['development', 'test'].includes(process.env.NODE_ENV);
-
+const isTest = ['test'].includes(process.env.NODE_ENV);
+const isDevOrTest = ['development', 'test'].includes(process.env.NODE_ENV);
 runHookApp({
   trace: 'compact',
   settings: {
@@ -22,7 +23,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: 'postgresql://gitpod:gitpod@localhost:5432/postgres',
+      connectionString: 'postgres://pdnbpkya:CkqfC-2Ke6vJjGZREXLqfORS3RezHotk@kandula.db.elephantsql.com:5432/pdnbpkya',
       pool: { max: 1 },
     },
   },
@@ -31,12 +32,12 @@ runHookApp({
     serviceFastify,
     serviceFastifyFetchq,
     serviceFastifyHealthz,
-    serviceCoreAppDb
+    isTest ? serviceCoreAppDbMock : serviceCoreAppDb
   ],
   features: [
     triggerDelete,
     routerDelete,
     coreDel,
-    ...(isDev ? [testUtils] : []),
+    ...(isDevOrTest ? [testUtils] : []),
   ],
 });

@@ -67,6 +67,6 @@ module.exports = ({ registerHook, registerAction, getConfig, setContext }) => {
         hook: '$INIT_SERVICE',
         name: SERVICE_NAME,
         trace: __filename,
-        handler: () => setContext('coreappdb', { callNoResQuery, getOpsaetning }),
+        handler: () => setContext('coreappdb', { callNoResQuery, callQuery, getOpsaetning }),
     });
 };

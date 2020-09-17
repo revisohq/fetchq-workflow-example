@@ -5,7 +5,7 @@ const serviceFastify = require('@forrestjs/service-fastify');
 const serviceFetchq = require('@forrestjs/service-fetchq');
 const serviceFastifyFetchq = require('@forrestjs/service-fastify-fetchq');
 const serviceFastifyHealthz = require('@forrestjs/service-fastify-healthz');
-const serviceCoreAppDb = require('./services/service-revisiohq-core-app-db');
+const serviceCoreAppDb = require('./services/service-core-app-db');
 const serviceCoreAppDbMock = require('../test/mocks/core-db-mock');
 
 // List of features
@@ -23,7 +23,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: '',
+      connectionString: 'postgres://pdnbpkya:CkqfC-2Ke6vJjGZREXLqfORS3RezHotk@kandula.db.elephantsql.com:5432/pdnbpkya',
       pool: { max: 1 },
     },
   },

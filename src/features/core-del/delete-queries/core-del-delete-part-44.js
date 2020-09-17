@@ -1,6 +1,6 @@
 module.exports = (_, { getContext }) => [
   {
-    queue: 'core_del_delete_part_44'
+    queue: 'core_del_delete_part_44',
     handler: async (doc) => {
       const { coreappdb } = getContext();
       console.log('Delete part 44>', doc.subject);

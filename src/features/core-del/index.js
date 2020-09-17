@@ -8,6 +8,7 @@ module.exports = ({ registerAction }) => {
     handler: [
       makeQueue("core_del"),
       makeQueue("core_del_update_constraints"),
+      makeQueue("s3_delete_file"),
       makeQueue("core_del_delete_part_1"),
       makeQueue("core_del_delete_part_2"),
       makeQueue("core_del_delete_part_3"),
@@ -74,6 +75,18 @@ module.exports = ({ registerAction }) => {
     hook: "$FETCHQ_REGISTER_WORKER",
     name: FEATURE_NAME,
     handler: require("./core-del-update-constraints")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("../s3-del/s3-delete-file")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./core-del-finalize")
   });
 
   registerAction({

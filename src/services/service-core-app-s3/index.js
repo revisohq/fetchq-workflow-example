@@ -1,4 +1,5 @@
 const s3 = require("aws-sdk");
+const { SERVICE_NAME } = require('./hooks');
 
 const isTest = ['test'].includes(process.env.NODE_ENV);
 
@@ -9,9 +10,6 @@ AWS.config.update({
 });
 
 AWS.config.region = 'REGION';
-const deleteFileMock = (bucket, key) => {
-
-}
 
 const deleteFile = (bucket, key) => {
     return new Promise((resolve, reject) => {
@@ -31,6 +29,11 @@ const deleteFile = (bucket, key) => {
     });
 }
 
-module.exports = {
-    deleteFile: isTest ? deleteFileMock : deleteFile,
-}
+module.exports = ({ registerHook, registerAction, getConfig, setContext }) => {
+    registerAction({
+        hook: '$INIT_SERVICE',
+        name: SERVICE_NAME,
+        trace: __filename,
+        handler: () => setContext('s3', { deleteFile }),
+    });
+};

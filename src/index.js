@@ -6,6 +6,7 @@ const serviceFetchq = require('@forrestjs/service-fetchq');
 const serviceFastifyFetchq = require('@forrestjs/service-fastify-fetchq');
 const serviceFastifyHealthz = require('@forrestjs/service-fastify-healthz');
 const serviceCoreAppDb = require('./services/service-core-app-db');
+const serviceS3 = require('./services/service-core-app-s3');
 const serviceCoreAppDbMock = require('../test/mocks/core-db-mock');
 
 // List of features
@@ -23,7 +24,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: 'ConectionString',
+      connectionString: 'ConnectionString',
       pool: { max: 1 },
     },
   },
@@ -32,6 +33,7 @@ runHookApp({
     serviceFastify,
     serviceFastifyFetchq,
     serviceFastifyHealthz,
+    serviceS3,
     isTest ? serviceCoreAppDbMock : serviceCoreAppDb
   ],
   features: [

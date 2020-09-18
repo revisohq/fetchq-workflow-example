@@ -14,12 +14,12 @@ module.exports = (_, { getContext }) => [
                     ON fsd.StorageId = fsp.Id 
                     WHERE Opsaetning = ${setupId} 
                     AND fs.DataId IS NOT NULL`);
-                arrayOfFileInfos.forEach(element => {
+                arrayOfFileInfos.forEach(async (element) => {
                     console.log('Bucket: ', element.Bucket);
                     console.log('Key: ', element.Key);
                     console.log('Username: ', element.Username);
                     console.log('Password: ', element.Password);
-                    //await s3.deleteFile(bucket, key);  <-- Do not run
+                    await s3.deleteFile(element.Bucket, element.Key, element.Username, element.Password);  //<--Do not run
                 });
 
                 await doc.forward('core_del_finalize');

@@ -62,7 +62,7 @@ const callQuery = query => {
 
 module.exports = ({ registerHook, registerAction, getConfig, setContext }) => {
     //registerHook(hooks);
-    console.log('hooks ', hooks)
+    //console.log('hooks ', hooks)
     registerAction({
         hook: '$INIT_SERVICE',
         name: SERVICE_NAME,

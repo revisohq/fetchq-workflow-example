@@ -3,14 +3,14 @@ const { SERVICE_NAME } = require('./hooks');
 
 const isTest = ['test'].includes(process.env.NODE_ENV);
 
-const deleteFile = (bucket, key, login, password) => {
-    AWS.config.update({
+const deleteFile = async (bucket, key, login, password) => {
+    s3.config.update({
         accessKeyId: login,
         secretAccessKey: password
     });
-    AWS.config.region = 'REGION';
+    s3.config.region = 'eu-west-1';
     return new Promise((resolve, reject) => {
-        var bucketInstance = new AWS.S3();
+        var bucketInstance = new s3.S3();
         var params = {
             Bucket: bucket,
             Key: key

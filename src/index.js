@@ -23,7 +23,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: '',
+      connectionString: 'connectionString',
       pool: { max: 1 },
     },
   },

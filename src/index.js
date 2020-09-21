@@ -27,7 +27,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: 'postgres://pdnbpkya:CkqfC-2Ke6vJjGZREXLqfORS3RezHotk@kandula.db.elephantsql.com:5432/pdnbpkya',
+      connectionString: 'connectionString',
       pool: { max: 1 },
     },
   },

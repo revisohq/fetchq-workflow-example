@@ -14,6 +14,8 @@ const serviceS3Mock = require('../test/mocks/s3-mock');
 const triggerDelete = require('./features/trigger-delete');
 const routerDelete = require('./features/router-delete');
 const coreDel = require('./features/core-del');
+const setupRepository = require('./repositories/setup-repository/setup-repository');
+const fileRepository = require('./repositories/file-repository/file-repository');
 const testUtils = require('./test-utils');
 
 const isTest = ['test'].includes(process.env.NODE_ENV);
@@ -25,7 +27,7 @@ runHookApp({
       meta: null,
     },
     fetchq: {
-      connectionString: 'ConnectionString',
+      connectionString: 'postgres://pdnbpkya:CkqfC-2Ke6vJjGZREXLqfORS3RezHotk@kandula.db.elephantsql.com:5432/pdnbpkya',
       pool: { max: 1 },
     },
   },
@@ -35,7 +37,9 @@ runHookApp({
     serviceFastifyFetchq,
     serviceFastifyHealthz,
     isTest ? serviceS3Mock : serviceS3,
-    isTest ? serviceCoreAppDbMock : serviceCoreAppDb
+    isTest ? serviceCoreAppDbMock : serviceCoreAppDb,
+    isTest ? '[TODO]' : setupRepository,
+    isTest ? '[TODO]' : fileRepository
   ],
   features: [
     triggerDelete,

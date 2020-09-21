@@ -1,4 +1,4 @@
-const { SERVICE_NAME } = require('./hooks');
+const { SERVICE } = require('@forrestjs/hooks');
 
 const isTest = ['test'].includes(process.env.NODE_ENV);
 

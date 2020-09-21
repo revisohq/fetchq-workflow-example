@@ -68,9 +68,11 @@ module.exports = ({ registerAction }) => {
       makeQueue("core_del_delete_part_57"),
       makeQueue("core_del_delete_part_58"),
       makeQueue("core_del_delete_part_59"),
+      makeQueue("core_del_delete_part_60"),
       makeQueue("core_del_finalize"),
     ]
   });
+
   registerAction({
     hook: "$FETCHQ_REGISTER_WORKER",
     name: FEATURE_NAME,
@@ -92,68 +94,366 @@ module.exports = ({ registerAction }) => {
   registerAction({
     hook: "$FETCHQ_REGISTER_WORKER",
     name: FEATURE_NAME,
-    handler: [
-      require("./core-del"),
-      require("./delete-queries/core-del-delete-part-1"),
-      require("./delete-queries/core-del-delete-part-2"),
-      require("./delete-queries/core-del-delete-part-3"),
-      require("./delete-queries/core-del-delete-part-4"),
-      require("./delete-queries/core-del-delete-part-5"),
-      require("./delete-queries/core-del-delete-part-6"),
-      require("./delete-queries/core-del-delete-part-7"),
-      require("./delete-queries/core-del-delete-part-8"),
-      require("./delete-queries/core-del-delete-part-9"),
-      require("./delete-queries/core-del-delete-part-10"),
-      require("./delete-queries/core-del-delete-part-11"),
-      require("./delete-queries/core-del-delete-part-12"),
-      require("./delete-queries/core-del-delete-part-13"),
-      require("./delete-queries/core-del-delete-part-14"),
-      require("./delete-queries/core-del-delete-part-15"),
-      require("./delete-queries/core-del-delete-part-16"),
-      require("./delete-queries/core-del-delete-part-17"),
-      require("./delete-queries/core-del-delete-part-18"),
-      require("./delete-queries/core-del-delete-part-19"),
-      require("./delete-queries/core-del-delete-part-20"),
-      require("./delete-queries/core-del-delete-part-21"),
-      require("./delete-queries/core-del-delete-part-22"),
-      require("./delete-queries/core-del-delete-part-23"),
-      require("./delete-queries/core-del-delete-part-24"),
-      require("./delete-queries/core-del-delete-part-25"),
-      require("./delete-queries/core-del-delete-part-26"),
-      require("./delete-queries/core-del-delete-part-27"),
-      require("./delete-queries/core-del-delete-part-28"),
-      require("./delete-queries/core-del-delete-part-29"),
-      require("./delete-queries/core-del-delete-part-30"),
-      require("./delete-queries/core-del-delete-part-31"),
-      require("./delete-queries/core-del-delete-part-32"),
-      require("./delete-queries/core-del-delete-part-33"),
-      require("./delete-queries/core-del-delete-part-34"),
-      require("./delete-queries/core-del-delete-part-35"),
-      require("./delete-queries/core-del-delete-part-36"),
-      require("./delete-queries/core-del-delete-part-37"),
-      require("./delete-queries/core-del-delete-part-38"),
-      require("./delete-queries/core-del-delete-part-39"),
-      require("./delete-queries/core-del-delete-part-40"),
-      require("./delete-queries/core-del-delete-part-41"),
-      require("./delete-queries/core-del-delete-part-42"),
-      require("./delete-queries/core-del-delete-part-43"),
-      require("./delete-queries/core-del-delete-part-44"),
-      require("./delete-queries/core-del-delete-part-45"),
-      require("./delete-queries/core-del-delete-part-46"),
-      require("./delete-queries/core-del-delete-part-47"),
-      require("./delete-queries/core-del-delete-part-48"),
-      require("./delete-queries/core-del-delete-part-49"),
-      require("./delete-queries/core-del-delete-part-50"),
-      require("./delete-queries/core-del-delete-part-51"),
-      require("./delete-queries/core-del-delete-part-52"),
-      require("./delete-queries/core-del-delete-part-53"),
-      require("./delete-queries/core-del-delete-part-54"),
-      require("./delete-queries/core-del-delete-part-55"),
-      require("./delete-queries/core-del-delete-part-56"),
-      require("./delete-queries/core-del-delete-part-57"),
-      require("./delete-queries/core-del-delete-part-58"),
-      require("./delete-queries/core-del-delete-part-59"),
-      require("./core-del-finalize"),
-    ]
+    handler: require("./delete-queries/core-del-delete-part-1")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-2")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-3")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-4")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-5")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-6")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-7")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-8")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-9")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-10")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-11")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-12")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-13")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-14")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-15")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-16")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-17")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-18")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-19")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-20")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-21")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-22")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-23")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-24")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-25")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-26")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-27")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-28")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-29")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-30")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-31")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-32")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-33")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-34")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-35")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-36")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-37")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-38")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-39")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-40")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-41")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-42")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-43")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-44")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-45")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-46")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-47")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-48")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-49")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-50")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-51")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-52")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-53")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-54")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-55")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-56")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-57")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-58")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-59")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./delete-queries/core-del-delete-part-60")
+  });
+
+  registerAction({
+    hook: "$FETCHQ_REGISTER_WORKER",
+    name: FEATURE_NAME,
+    handler: require("./core-del")
   });
 };

@@ -8,6 +8,7 @@ const serviceFastifyHealthz = require('@forrestjs/service-fastify-healthz');
 const serviceCoreAppDb = require('./services/service-core-app-db');
 const serviceS3 = require('./services/service-core-app-s3');
 const serviceCoreAppDbMock = require('../test/mocks/core-db-mock');
+const serviceS3Mock = require('../test/mocks/s3-mock');
 
 // List of features
 const triggerDelete = require('./features/trigger-delete');
@@ -33,7 +34,7 @@ runHookApp({
     serviceFastify,
     serviceFastifyFetchq,
     serviceFastifyHealthz,
-    serviceS3,
+    isTest ? serviceS3Mock : serviceS3,
     isTest ? serviceCoreAppDbMock : serviceCoreAppDb
   ],
   features: [

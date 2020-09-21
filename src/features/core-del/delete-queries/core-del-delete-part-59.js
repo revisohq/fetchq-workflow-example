@@ -9,7 +9,7 @@ module.exports = (_, { getContext }) => [
         const setupId = doc.payload.setupId;
         await coreappdb.callNoResQuery(`DELETE FROM Opsaetning WHERE Opsaetning = ${setupId}`);
         await coreappdb.callNoResQuery(`DELETE FROM Aftalenr WHERE AftaleNr = ${agId}`);
-        await doc.forward('core_del_finalize');
+        await doc.forward('core_del_delete_part_60');
         return doc.complete();
       } catch (err) {
         return doc.reschedule('+1s');

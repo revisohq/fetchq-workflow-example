@@ -6,7 +6,8 @@ module.exports = (_, { getContext }) => [
             console.log('Delete s3 file>', doc.subject);
             try {
                 const setupId = doc.payload.setupId;
-                arrayOfFileInfos = await coreappdb.callQuery(`SELECT ProviderSetting AS Bucket, DataKey AS 'Key', Username, Password 
+                arrayOfFileInfos = await coreappdb.callQuery(
+                    `SELECT ProviderSetting AS Bucket, DataKey AS 'Key', Username, Password 
                     FROM FileStore fs 
                     LEFT JOIN FileStorageData fsd 
                     ON fs.DataId = fsd.Id 
@@ -19,7 +20,15 @@ module.exports = (_, { getContext }) => [
                     console.log('Key: ', element.Key);
                     console.log('Username: ', element.Username);
                     console.log('Password: ', element.Password);
-                    await s3.deleteFile(element.Bucket, element.Key, element.Username, element.Password);  //<--Do not run
+
+                    // put some validation
+
+                    // Deletes from s3, make sure when testing you run local agreement 
+                    // otherwise if the agreement is streamed from production the files 
+                    // are also deleted from production the way they are defined in DB
+                    // This depends on in which environment file has been uploaded and 
+                    // then defined in DB as development environment or production.
+                    await s3.deleteFile(element.Bucket, element.Key, element.Username, element.Password);
                 });
 
                 await doc.forward('core_del_finalize');

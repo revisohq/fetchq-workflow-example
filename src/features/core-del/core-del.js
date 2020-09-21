@@ -1,18 +1,14 @@
 const handler = async (doc, { client }) => {
   // Forward to multiple queues
   if (doc.iterations === 0) {
-    await doc.forward('core_del_aaa');
-    await doc.forward('core_del_bbb');
-    await doc.forward('core_del_ccc');
+    await doc.forward('core_del_update_constraints');
     return doc.reschedule('+1ms');
   }
 
   // Checking whether the task is done
   if (
     !(await client.utils.checkStatus(doc.subject, [
-      'core_del_aaa',
-      'core_del_bbb',
-      'core_del_ccc',
+      'core_del_finalize',
     ]))
   ) {
     console.log('CORE NOT READY', doc.subject);
